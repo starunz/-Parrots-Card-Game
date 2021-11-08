@@ -1,5 +1,12 @@
 let quantityCard = Number(prompt('Com quantas cartas deseja jogar? 🙂'));
 
+let firstCard = null; 
+let secondCard = null;
+let cardsUp = 0;
+let rounds = 0;
+let clock = 0;
+let idClock;
+
 startGame();
 askQuantityCards();
 
@@ -48,6 +55,7 @@ function comparator() {
 	return Math.random() - 0.5
 }
 
+
 function startGame() {
     const typesCards = ['bobross', 'explody', 'fiesta', 'metal', 'revertit', 'triplets', 'unicorn']; 
     const cards = [];
@@ -58,17 +66,12 @@ function startGame() {
 }
 
 function startClock() {
-    setInterval(() => {
+    idClock = setInterval(() => {
         clock ++;
         document.querySelector('.clock span').innerHTML = clock;
     }, 1000);
 }
 
-let firstCard = null; 
-let secondCard = null;
-let cardsUp = 0;
-let rounds = 0;
-let clock = 0;
 function flipCard(clickedCard) {
 
     rounds ++;
@@ -110,6 +113,10 @@ function resetCard() {
 
 function checkGameEnd() {
     if (cardsUp === quantityCard) {
-        alert(`você ganhou com ${rounds} jogadas `);
+
+        document.querySelector('ul').innerHTML = "";
+
+        alert(`você ganhou com ${rounds} jogadas e em ${clock} segundos 👏🏻`);
+        clearInterval(idClock);
     }
 }
