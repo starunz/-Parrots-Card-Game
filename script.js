@@ -73,6 +73,7 @@ function flipCard(clickedCard) {
 
         if (firstCard.innerHTML === secondCard.innerHTML) {
             console.log('deu bom :v')
+            resetCard();
         }
         else {
             setTimeout(untapCard, 1000);
@@ -85,4 +86,10 @@ function flipCard(clickedCard) {
 function untapCard() {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
+    resetCard();
+}
+
+function resetCard() {
+    firstCard = null;
+    secondCard = null;
 }
