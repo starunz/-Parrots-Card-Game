@@ -59,6 +59,10 @@ function startGame() {
 let firstCard = null; 
 let secondCard = null;
 function flipCard(clickedCard) {
+
+    if (clickedCard.classList.contains('flip')) {
+        return;
+    }
     
     if (firstCard === null) {
         firstCard = clickedCard;
