@@ -112,14 +112,20 @@ function resetCard() {
 
 function checkGameEnd() {
     if (cardsUp === quantityCard) {
-        alert(`você ganhou com ${rounds} jogadas e em ${clock} segundos 👏🏻`);
-
         clearInterval(idClock);
+        setTimeout(scoreboard, 1000);
+    }
+}
 
-        const playAgain = prompt('Deseja jogar de novo? 🙃');
+function scoreboard() {
+    alert(`você ganhou com ${rounds} jogadas e em ${clock} segundos 👏🏻`);
+    playAgain();
+}
 
-        if (playAgain === 'sim') {
-            location.reload();
-        }
+function playAgain() {
+    const playAgain = prompt('Deseja jogar de novo? 🙃');
+
+    if (playAgain === 'sim') {
+       window.location.reload();
     }
 }
