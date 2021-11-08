@@ -14,3 +14,15 @@ function validateGame() {
     }
     return false;
 }
+
+function handOutCards() {
+    const board = document.querySelector('.game-board');
+
+    //aqui ficará o for para por as cartas no tabuleiro, mas elas tem que ser sorteadas antes de ir para o tabuleiro
+}
+
+function startGame() {
+    
+    const typesCards = ['bobross', 'explody', 'fiesta', 'metal', 'revertit', 'triplets', 'unicorn']; 
+    const Cards = []; //as cartas sorteadas virão para esse array 
+}
