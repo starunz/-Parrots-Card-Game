@@ -65,6 +65,10 @@ function flipCard(clickedCard) {
     if (clickedCard.classList.contains('flip')) {
         return;
     }
+
+    if (secondCard !== null) {
+        return;
+    }
     
     if (firstCard === null) {
         firstCard = clickedCard;
