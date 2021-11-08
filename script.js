@@ -1,7 +1,10 @@
 let quantityCard = Number(prompt('Com quantas cartas deseja jogar? 🙂'));
 
 function askQuantityCards() {
-    quantityCard = Number(prompt('Com quantas cartas deseja jogar? 🙂'));
+    
+    while (validateGame()) {
+        quantityCard = Number(prompt('Com quantas cartas deseja jogar? 🙂'));
+    }
 }
 askQuantityCards();
 
@@ -11,5 +14,3 @@ function validateGame() {
     }
     return false;
 }
-
-validateGame();
