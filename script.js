@@ -54,12 +54,21 @@ function startGame() {
 
     raflleCards(typesCards, cards);
     handOutCards(cards);
+    startClock();
+}
+
+function startClock() {
+    setInterval(() => {
+        clock ++;
+        document.querySelector('.clock span').innerHTML = clock;
+    }, 1000);
 }
 
 let firstCard = null; 
 let secondCard = null;
 let cardsUp = 0;
 let rounds = 0;
+let clock = 0;
 function flipCard(clickedCard) {
 
     rounds ++;
