@@ -1,4 +1,4 @@
-let quantityCard = Number(prompt('Com quantas cartas deseja jogar? 🙂'));
+let quantityCard = Number(prompt('Com quantas cartas deseja jogar? (entre 4 e 14) 🙂'));
 
 let firstCard = null; 
 let secondCard = null;
@@ -11,9 +11,8 @@ startGame();
 askQuantityCards();
 
 function askQuantityCards() {
-    
     while (validateGame()) {
-        quantityCard = Number(prompt('Com quantas cartas deseja jogar? 🙂'));
+        quantityCard = Number(prompt('Com quantas cartas deseja jogar? (entre 4 e 14) 🙂'));
     }
 }
 
@@ -113,10 +112,14 @@ function resetCard() {
 
 function checkGameEnd() {
     if (cardsUp === quantityCard) {
-
-        document.querySelector('ul').innerHTML = "";
-
         alert(`você ganhou com ${rounds} jogadas e em ${clock} segundos 👏🏻`);
+
         clearInterval(idClock);
+
+        const playAgain = prompt('Deseja jogar de novo? 🙃');
+
+        if (playAgain === 'sim') {
+            location.reload();
+        }
     }
 }
