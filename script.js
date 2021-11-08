@@ -58,6 +58,7 @@ function startGame() {
 
 let firstCard = null; 
 let secondCard = null;
+let cardsUp = 0;
 function flipCard(clickedCard) {
  
 
@@ -72,8 +73,9 @@ function flipCard(clickedCard) {
         secondCard = clickedCard;
 
         if (firstCard.innerHTML === secondCard.innerHTML) {
-            console.log('deu bom :v')
+            cardsUp += 2;
             resetCard();
+            checkGameEnd();
         }
         else {
             setTimeout(untapCard, 1000);
@@ -92,4 +94,10 @@ function untapCard() {
 function resetCard() {
     firstCard = null;
     secondCard = null;
+}
+
+function checkGameEnd() {
+    if (cardsUp === quantityCard) {
+        alert('ganhou aee')
+    }
 }
