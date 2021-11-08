@@ -59,6 +59,7 @@ function startGame() {
 let firstCard = null; 
 let secondCard = null;
 function flipCard(clickedCard) {
+ 
 
     if (clickedCard.classList.contains('flip')) {
         return;
@@ -66,9 +67,6 @@ function flipCard(clickedCard) {
     
     if (firstCard === null) {
         firstCard = clickedCard;
-
-        clickedCard.classList.add('flip')
-        console.log(clickedCard)
     }
     else {
         secondCard = clickedCard;
@@ -76,5 +74,15 @@ function flipCard(clickedCard) {
         if (firstCard.innerHTML === secondCard.innerHTML) {
             console.log('deu bom :v')
         }
+        else {
+            setTimeout(untapCard, 1000);
+        }
     }
+
+    clickedCard.classList.add('flip');
+}
+
+function untapCard() {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
 }
