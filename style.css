@@ -10,7 +10,7 @@ body {
     text-align: center;
     line-height: 66px;
     letter-spacing: -0.004em;
-    margin-top: 20px;
+    padding-top: 10vh;
 }
 
 .game-board {
