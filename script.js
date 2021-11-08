@@ -59,17 +59,16 @@ function startGame() {
 let firstCard = null; 
 let secondCard = null;
 let cardsUp = 0;
+let rounds = 0;
 function flipCard(clickedCard) {
- 
 
+    rounds ++;
     if (clickedCard.classList.contains('flip')) {
         return;
     }
-
     if (secondCard !== null) {
         return;
     }
-    
     if (firstCard === null) {
         firstCard = clickedCard;
     }
@@ -102,6 +101,6 @@ function resetCard() {
 
 function checkGameEnd() {
     if (cardsUp === quantityCard) {
-        alert('ganhou aee')
+        alert(`você ganhou com ${rounds} jogadas `);
     }
 }
