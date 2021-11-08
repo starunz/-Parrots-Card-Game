@@ -21,7 +21,7 @@ function handOutCards(cards) {
     const board = document.querySelector('.game-board');
 
     for (let i = 0; i < cards.length; i ++) {
-        const card = `<li class="card" onclick="">
+        const card = `<li class="card" onclick="flipCard(this)">
             <div class='front-face face'>
                 <img src='img/front.png'>
             </div>
@@ -54,4 +54,15 @@ function startGame() {
 
     raflleCards(typesCards, cards);
     handOutCards(cards);
+}
+
+let firstCard = null; 
+function flipCard(clickedCard) {
+    
+    if (firstCard === null) {
+        firstCard = clickedCard;
+
+        clickedCard.classList.add('flip')
+        console.log(clickedCard)
+    }
 }

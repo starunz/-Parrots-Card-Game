@@ -58,3 +58,11 @@ img {
 .back-face {
     transform: rotateY(180deg);
 }
+
+.flip .back-face {
+    transform: rotateY(0deg);
+}
+
+.flip .front-face {
+    transform: rotateY(-180deg);
+}
