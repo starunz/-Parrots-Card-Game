@@ -1,12 +1,14 @@
 let quantityCard = Number(prompt('Com quantas cartas deseja jogar? 🙂'));
 
+startGame();
+askQuantityCards();
+
 function askQuantityCards() {
     
     while (validateGame()) {
         quantityCard = Number(prompt('Com quantas cartas deseja jogar? 🙂'));
     }
 }
-askQuantityCards();
 
 function validateGame() {
     if (quantityCard < 4 || quantityCard > 14 || (quantityCard % 2) === 1 || isNaN(quantityCard)) {
@@ -15,14 +17,41 @@ function validateGame() {
     return false;
 }
 
-function handOutCards() {
+function handOutCards(cards) {
     const board = document.querySelector('.game-board');
 
-    //aqui ficará o for para por as cartas no tabuleiro, mas elas tem que ser sorteadas antes de ir para o tabuleiro
+    for (let i = 0; i < cards.length; i ++) {
+        const card = `<li class="card" onclick="">
+            <div class='front-face face'>
+                <img src='img/front.png'>
+            </div>
+            <div class='back-face face'>
+                <img src='img/${cards[i]}parrot.gif'>
+            </div>
+        </li>`;
+
+        board.innerHTML += card;
+    }
+}
+
+function raflleCards(typesCards, cards) {
+    for (let i = 0; i < (quantityCard / 2); i++) {
+        const parrots = typesCards[i];
+        cards.push(parrots);
+        cards.push(parrots);
+    }
+
+    cards.sort(comparator); 
+}
+
+function comparator() { 
+	return Math.random() - 0.5
 }
 
 function startGame() {
-    
     const typesCards = ['bobross', 'explody', 'fiesta', 'metal', 'revertit', 'triplets', 'unicorn']; 
-    const Cards = []; //as cartas sorteadas virão para esse array 
+    const cards = [];
+
+    raflleCards(typesCards, cards);
+    handOutCards(cards);
 }
