@@ -57,6 +57,7 @@ function startGame() {
 }
 
 let firstCard = null; 
+let secondCard = null;
 function flipCard(clickedCard) {
     
     if (firstCard === null) {
@@ -64,5 +65,12 @@ function flipCard(clickedCard) {
 
         clickedCard.classList.add('flip')
         console.log(clickedCard)
+    }
+    else {
+        secondCard = clickedCard;
+
+        if (firstCard.innerHTML === secondCard.innerHTML) {
+            console.log('deu bom :v')
+        }
     }
 }
