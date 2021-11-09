@@ -41,19 +41,18 @@ function handOutCards(cards) {
 }
 
 function raflleCards(typesCards, cards) {
+    typesCards.sort(comparator); 
+
     for (let i = 0; i < (quantityCard / 2); i++) {
         const parrots = typesCards[i];
         cards.push(parrots);
         cards.push(parrots);
     }
-
-    cards.sort(comparator); 
 }
 
 function comparator() { 
 	return Math.random() - 0.5
 }
-
 
 function startGame() {
     const typesCards = ['bobross', 'explody', 'fiesta', 'metal', 'revertit', 'triplets', 'unicorn']; 
